@@ -1,0 +1,12 @@
+.LoginCard{
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    /* border: 1px solid; */
+    /* border-radius: 5%; */
+    padding: 2%;
+}
+
+.button2{
+    margin-left: 1em;
+}
