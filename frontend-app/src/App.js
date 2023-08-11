@@ -13,16 +13,9 @@ import Register from './components/register';
 function App() {
   return (
     <div className="App">
-      <Navbar className='HomeNav' bg="danger" data-bs-theme="danger">
+      <Navbar className='HomeNav' bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand className='NavbarBrand' href="/">
-            <img
-              src="/assets/wells-fargo.svg"
-              width="30"
-              height="30"
-              alt="WF"
-              />
-            </Navbar.Brand>
+          <Navbar.Brand className='NavbarBrand' href="/">LAMA</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>

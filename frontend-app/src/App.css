@@ -38,7 +38,8 @@
 }
 
 .NavbarBrand{
-  color: yellow;
+  color: black;
+  font-weight: bold;
 }
 
 .me-auto{
