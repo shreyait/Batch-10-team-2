@@ -1,11 +1,18 @@
-
-
+import styles from "./customButton.module.css";
 
 export default function CustomButton(props) {
+  const { as, className, children, ...otherProps } = props;
 
-    const {isBig, children, ...otherProps} = props;
+  let combinedClassName = styles["button-24"];
+  if (className) {
+    combinedClassName += " " + className;
+  }
 
-    return <button className="button-24" style={{width: isBig ? '400px': '150px'}} {...otherProps}>
-        {children}
-    </button>
+  const Element = as || "button";
+
+  return (
+    <Element className={combinedClassName} {...otherProps}>
+      {children}
+    </Element>
+  );
 }

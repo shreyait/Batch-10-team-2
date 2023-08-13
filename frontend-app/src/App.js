@@ -1,40 +1,42 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import logo from './logo.svg';
-import './App.css';
-import {Routes, Route, Link} from 'react-router-dom';
-import Home from './components/home';
-import Login from './components/login';
-import Dashboard from './components/dashboard';
-import Register from './components/register';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import styles from "./App.module.css";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/home";
+import Login from "./components/login";
+import Dashboard from "./components/dashboard";
+import Register from "./components/register";
+import logoPng from "./assets/lama-logo.png";
 
 function App() {
   return (
     <div>
-      <Navbar className='HomeNav' bg="light" data-bs-theme="light">
+      <Navbar className={styles["NavHome"]} bg="light" data-bs-theme="light">
         <Container>
-          <img href="./assets/lama-logo.png"/>
-          <Navbar.Brand className='NavbarBrand' href="/">
-            
+          <Navbar.Brand as={Link} className={styles["NavbarBrand"]} to="/">
+            <img className={styles["NavImage"]} src={logoPng} />
           </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/login">Login</Nav.Link>
+          <Nav className={`me-auto ${styles["NavLink"]}`}>
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
             {/* <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link> */}
             {/* <Nav.Link as={Link} to ="/register">Register</Nav.Link> */}
           </Nav>
         </Container>
       </Navbar>
 
-
-      <div className='container'>
+      <div className="container">
         <Routes>
-          <Route path='/' element={<Home />} /> 
-          <Route path='/login' element={<Login />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/register' element={<Register />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </div>

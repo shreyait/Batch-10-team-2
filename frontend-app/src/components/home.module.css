@@ -1,0 +1,12 @@
+.cardStyle {
+	width: 80%;
+	flex-direction: row;
+	align-items: center;
+	margin: 5vh auto;
+	box-shadow: #FF4742AA 0px 5px 15px;
+}
+
+.cardImg {
+	width: 80%;
+	height: 80vh;
+}
