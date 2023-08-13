@@ -10,6 +10,8 @@ import Dashboard from "./components/dashboard";
 import Register from "./components/register";
 import logoPng from "./assets/lama-logo.png";
 
+console.log(process.env.REACT_APP_BACKEND_URL);
+
 function App() {
   return (
     <div>
