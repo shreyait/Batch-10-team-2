@@ -12,18 +12,23 @@ import Register from './components/register';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar className='HomeNav' bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand className='NavbarBrand' href="/">LAMA</Navbar.Brand>
+          <img href="./assets/lama-logo.png"/>
+          <Navbar.Brand className='NavbarBrand' href="/">
+            
+          </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/login">Login</Nav.Link>
+            {/* <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link> */}
+            {/* <Nav.Link as={Link} to ="/register">Register</Nav.Link> */}
           </Nav>
         </Container>
       </Navbar>
+
+
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} /> 

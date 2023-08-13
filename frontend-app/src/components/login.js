@@ -22,12 +22,12 @@ export default function Login(){
             UserName : username,
             Password : password
         };
-    const url = '';
-    axios.post(url,data).then((result) =>{
-         alert(result.data);
-    }).catch((error)=>{
-        alert(error);
-    })
+        const url = '';
+        axios.post(url,data).then((result) => {
+            alert(result.data);
+        }).catch((error) => {
+            alert(error);
+        })
     }
   const navigate = useNavigate();
 
@@ -55,7 +55,7 @@ export default function Login(){
                 <Button className='button2' variant="primary" type="submit" onClick={() => handleSave()} >
                     Login
                 </Button>
-                         <Routes>
+                <Routes>
                     <Route path='/register' element={<Register />}></Route>
                 </Routes>
             </Form> 
