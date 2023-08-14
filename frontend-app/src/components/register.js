@@ -23,7 +23,7 @@ export default function Register(){
             name : name,
             email : email
         };
-    const url = '';
+    const url = 'https://localhost:7033/api/LoanLogger';
     axios.post(url,data).then((result) =>{
          alert(result.data);
     }).catch((error)=>{
