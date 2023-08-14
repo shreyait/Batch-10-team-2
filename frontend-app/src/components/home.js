@@ -12,9 +12,14 @@ export default function Home() {
       <Card className={styles["cardStyle"]}>
         <Card.Img className={styles["cardImg"]} variant="top" src={homeJpg} />
         <Card.Body>
-          <Card.Title>LAMA</Card.Title>
-          <Card.Text>Your go to place for Loans!</Card.Text>
-          <CustomButton as={Link} to="/login">
+          <Card.Title>
+            <img className={styles["homelogo"]} src={logoPng} />
+          </Card.Title>
+          <br></br>
+          <Card.Text className={styles["cardtext"]}>
+            Your go to place for Loans!
+          </Card.Text>
+          <CustomButton className={styles["homeBtn"]} as={Link} to="/login">
             Get Started
           </CustomButton>
         </Card.Body>
