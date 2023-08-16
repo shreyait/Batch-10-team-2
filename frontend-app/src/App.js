@@ -13,7 +13,7 @@ import LoanApply from "./components/LoanApply";
 import ItemPurchased from "./components/ItemPurchased";
 import logoPng from "./assets/lama-logo.png";
 
-console.log(process.env.REACT_APP_BACKEND_URL);
+// console.log(process.env.REACT_APP_BACKEND_URL);
 
 function App() {
   return (
