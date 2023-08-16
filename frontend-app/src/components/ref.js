@@ -115,9 +115,12 @@ export default function Register(){
             Please provide a valid password.
           </Form.Control.Feedback>
         </Form.Group>
+        <CustomButton type="submit" onClick={navigateRegister}>
+          Sign up!
+        </CustomButton>
       </Row>
      
-      <Button type="submit"  >Submit form</Button>
+      <Button type="submit"  >Login</Button>
     </Form>
    
         </div>
