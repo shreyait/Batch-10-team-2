@@ -1,4 +1,4 @@
-.RegisterCard {
+.Loan{
     display: block;
     
     margin: auto;
@@ -7,10 +7,9 @@
     flex-wrap: wrap;
     margin-top: 5em;
     /* text-align: center; */
-    margin-left: 30%;
-    margin-right: 30%; 
-    /* border: 1px solid red; */
+    margin-left: 20%;
+    margin-right: 20%; 
+    border: 1px solid red;
     border-radius: 5%;
-    padding: 3%;
-
+    padding: 3%; 
 }

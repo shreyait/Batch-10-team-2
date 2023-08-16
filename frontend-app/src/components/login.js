@@ -27,7 +27,7 @@ export default function Login() {
       axios
         .post(url, data)
         .then((result) => {
-          alert(result.data);
+          navigate("/dashboard");
         })
         .catch((error) => {
           alert(error);
@@ -46,7 +46,6 @@ export default function Login() {
     setpassword(value);
   };
   const navigate = useNavigate();
-
   const navigateRegister = () => {
     navigate("/register");
   };
@@ -55,7 +54,7 @@ export default function Login() {
   <div className="LoginCard">
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+          <Form.Group as={Col} md="12" controlId="validationCustomUsername">
             <Form.Label>Username</Form.Label>
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -74,7 +73,7 @@ export default function Login() {
           </Row>
         <Row className="mb-3">
 
-          <Form.Group as={Col} md="6" controlId="validationCustom05">
+          <Form.Group as={Col} md="12" controlId="validationCustom05">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
@@ -87,14 +86,18 @@ export default function Login() {
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
-        <CustomButton type="submit" onClick={navigateRegister}>
+        <Row className="mb-3"></Row>
+        <div style={{marginLeft : "35%"}}>
+        <CustomButton type="submit" >Login</CustomButton>
+        <span style={{marginLeft : "25%"}}>
+        <CustomButton type="submit" onClick={navigateRegister} >
           Sign up!
         </CustomButton>
-        <CustomButton type="submit">Login</CustomButton>
+        </span>
+        </div>
         <Routes>
           <Route path="/register" element={<Register />}></Route>
         </Routes>
-        
         
       </Form>
     </div>
