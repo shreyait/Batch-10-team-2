@@ -14,6 +14,7 @@ const LoanApply = () => {
     const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -68,7 +69,7 @@ const LoanApply = () => {
           <Form.Label>Employee Id</Form.Label>
           <Form.Control
             required
-            type="number"
+            type="text"
             placeholder="Please enter your Employee id"
             defaultValue=""
             onChange={(e) => handleIdChange(e.target.value)}

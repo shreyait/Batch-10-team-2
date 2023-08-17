@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styles from "./ItemPurchased.module.css";
 const ItemPurchased = () => {
     const [data, setData] = useState([])
     useEffect(()=> {
@@ -8,9 +9,14 @@ const ItemPurchased = () => {
         .catch(err => console.log(err));
     }, [])
     return (
-        <div className='container'>
-            <div className='mt-3'>
-                <h3>Item Purchased</h3>
+        
+        <div  className={styles["table-container"]}>
+            <div className={styles["heading-container"]}>
+            <div className={styles["rectangle"]}></div>
+             <h3>Item Purchased</h3>
+             </div>
+            <div className={styles["custom-table"]}>
+               
                 <table className='table'>
                     <thead>
                         <tr>

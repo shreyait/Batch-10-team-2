@@ -12,6 +12,7 @@ import CustomButton from "./customButton";
 export default function Register() {
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
+    event.preventDefault()
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -19,10 +20,10 @@ export default function Register() {
     } else {
       const data = {
         password: password,
-        name: username,
+        Name: username,
         email: email,
       };
-      const url = "https://localhost:7033/api/LoanLogger";
+      const url = "https://localhost:7033/api/Registrations";
       axios
         .post(url, data)
         .then((result) => {
