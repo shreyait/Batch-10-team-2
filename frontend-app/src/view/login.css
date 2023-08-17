@@ -1,0 +1,15 @@
+.LoginCard{
+    display: block;
+    margin: auto;
+    justify-content: center;
+    margin-top: 5em;
+    margin-left: 30%;
+    margin-right: 30%;
+    border: 1px solid red;
+    border-radius: 5%;
+    padding: 2%;
+}
+
+.login-btn{
+    margin-left: 15px;
+}
