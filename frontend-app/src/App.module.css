@@ -1,0 +1,22 @@
+
+.NavbarBrand{
+  color: black;
+  font-weight: bold;
+}
+
+.NavImage {
+  height: 60px;
+}
+
+.NavLink{
+  font-weight: bold;
+}
+
+.NavHome {
+  background-color: white !important;
+  box-shadow: #FF4742AA 0px 5px 15px;
+}
+
+.navlink {
+  text-align: right;
+}
