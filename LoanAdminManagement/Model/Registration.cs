@@ -15,11 +15,17 @@ namespace LoanAdminManagement.Model
 
         [Required]
         [Column(TypeName = "varchar(20)")]
+        public string username { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar(20)")]
         public string email { get; set; }
 
         [Required]
         [Column(TypeName = "varchar(20)")]
         public string password { get; set; }
+
+        
 
     }
 }

@@ -292,3 +292,6 @@ C:\Users\Administrator\source\repos\LoanAdminManagement\LoanAdminManagement\bin\
 C:\Users\Administrator\source\repos\LoanAdminManagement\LoanAdminManagement\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Administrator\source\repos\LoanAdminManagement\LoanAdminManagement\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Administrator\source\repos\LoanAdminManagement\LoanAdminManagement\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\Administrator\source\repos\LoanAdminManagement\LoanAdminManagement\bin\Debug\net6.0\frontend-app updated\Batch-10-team-2\frontend-app\package-lock.json
+C:\Users\Administrator\source\repos\LoanAdminManagement\LoanAdminManagement\bin\Debug\net6.0\frontend-app updated\Batch-10-team-2\frontend-app\package.json
+C:\Users\Administrator\source\repos\LoanAdminManagement\LoanAdminManagement\bin\Debug\net6.0\frontend-app updated\Batch-10-team-2\frontend-app\public\manifest.json
