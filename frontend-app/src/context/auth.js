@@ -6,7 +6,7 @@ const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [isLoggedIn, setLoginState] = useState(true);
+  const [isLoggedIn, setLoginState] = useState(false);
 
   const logIn = async (username, password) => {
     console.log("logging in", username);
