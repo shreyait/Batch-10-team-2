@@ -12,11 +12,17 @@
   font-weight: bold;
 }
 
+.navlinks {
+  font-weight: bold;
+}
+
 .NavHome {
   background-color: white !important;
   box-shadow: #FF4742AA 0px 5px 15px;
 }
 
 .navlink {
-  text-align: right;
+    /* display: block;
+    text-align: right; */
+    /* margin-left: 50%; */
 }

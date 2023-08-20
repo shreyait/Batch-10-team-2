@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import CustomButton from "./customButton.js";
 import { AuthContext } from "../context/auth";
+import background from "./../assets/login-bg.jpg";
 
 export default function Login() {
   const { logIn } = useContext(AuthContext);
@@ -31,7 +32,10 @@ export default function Login() {
   };
 
   return (
-    <div className="LoginCard">
+    <div
+      className="LoginCard"
+      style={{ backgroundImage: `url(${background})` }}
+    >
       <Form onSubmit={handleSave}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Username</Form.Label>
@@ -51,12 +55,21 @@ export default function Login() {
             onChange={(e) => handlePasswordChange(e.target.value)}
           />
         </Form.Group>
-        <CustomButton type="button" onClick={navigateRegister}>
-          Sign up!
-        </CustomButton>
+        <br></br>
         <CustomButton className="login-btn" type="submit">
-          Login
+          SIGN IN
         </CustomButton>
+        <br></br>
+        <h6 className="divider">Don't have an account?</h6>
+        <br></br>
+        <CustomButton
+          type="button"
+          className="register-btn"
+          onClick={navigateRegister}
+        >
+          CREATE ACCOUNT
+        </CustomButton>
+
         <Routes>
           <Route path="/register" element={<Register />}></Route>
         </Routes>

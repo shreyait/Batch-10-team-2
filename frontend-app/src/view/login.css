@@ -1,7 +1,7 @@
 .LoginCard{
     display: block;
     margin: auto;
-    justify-content: center;
+    justify-content: right;
     margin-top: 5em;
     margin-left: 30%;
     margin-right: 30%;
@@ -10,6 +10,24 @@
     padding: 2%;
 }
 
+.container1 {
+    background-size: cover;
+    /* border: solid; */
+}
+
 .login-btn{
-    margin-left: 15px;
+    /* margin-left: 15px; */
+    display: block;
+	margin: auto;
+	width: 100%;
+}
+
+.register-btn {
+    display: block;
+	margin: auto;
+	width: 100%;
+}
+
+.divider {
+    text-align: center;
 }

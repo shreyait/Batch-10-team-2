@@ -6,7 +6,7 @@ const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [isLoggedIn, setLoginState] = useState(false);
+  const [isLoggedIn, setLoginState] = useState(true);
 
   const logIn = async (username, password) => {
     console.log("logging in", username);
@@ -29,7 +29,18 @@ const AuthContextProvider = ({ children }) => {
     setLoginState(false);
   };
 
-  const register = async ({ username, password, name, email,gender,department,designation,DOB,DOJ,empID }) => {
+  const register = async ({
+    username,
+    password,
+    name,
+    email,
+    gender,
+    department,
+    designation,
+    DOB,
+    DOJ,
+    empID,
+  }) => {
     const url = "https://localhost:7033/api/Registrations";
     console.log("registering", username);
     try {
@@ -38,13 +49,12 @@ const AuthContextProvider = ({ children }) => {
         password: password,
         name: name,
         email: email,
-        designation:designation, 
-        department:department,
-        dateofBirth:DOB,
-        dateofJoining:DOJ,
-        empId:empID,
-        Gender:gender
-
+        designation: designation,
+        department: department,
+        dateofBirth: DOB,
+        dateofJoining: DOJ,
+        empId: empID,
+        Gender: gender,
       });
       alert(result.data);
       setLoginState(true);

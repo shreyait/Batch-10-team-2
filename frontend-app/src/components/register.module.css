@@ -13,3 +13,9 @@
     padding: 2%;
 
 }
+
+.reg-btn {
+    display: block;
+	margin: auto;
+	width: 100%;
+}

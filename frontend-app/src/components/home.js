@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import { Routes, Route, useNavigate, Link } from "react-router-dom";
 import logoPng from "./../assets/lama-logo.png";
-import homeJpg from "./../assets/home.png";
+import homeJpg from "./../assets/home.jpg";
 import Card from "react-bootstrap/Card";
 import styles from "./home.module.css";
 import CustomButton from "./customButton";
