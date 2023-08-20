@@ -29,7 +29,7 @@ const AuthContextProvider = ({ children }) => {
     setLoginState(false);
   };
 
-  const register = async ({ username, password, name, email }) => {
+  const register = async ({ username, password, name, email,gender,department,designation,DOB,DOJ,empID }) => {
     const url = "https://localhost:7033/api/Registrations";
     console.log("registering", username);
     try {
@@ -38,6 +38,13 @@ const AuthContextProvider = ({ children }) => {
         password: password,
         name: name,
         email: email,
+        designation:designation, 
+        department:department,
+        dateofBirth:DOB,
+        dateofJoining:DOJ,
+        empId:empID,
+        Gender:gender
+
       });
       alert(result.data);
       setLoginState(true);
