@@ -6,7 +6,7 @@ namespace LoanAdminManagement.Model
     public class LoanCardMaster
     {
         [Key]
-        [Column(TypeName = "guid")] public Guid Id { get; set; }
+        [Column(TypeName = "Guid")] public Guid Id { get; set; }
 
         [Required]
         [Column(TypeName ="varchar(20")]
@@ -15,5 +15,8 @@ namespace LoanAdminManagement.Model
         [Column(TypeName = "varchar(15)")] public string LoanType { get; set; }
         [Required]
         [Column(TypeName = "varchar(2)")] public string Duration { get; set; }
+        [Required]
+        [Column(TypeName ="DateTime")] public DateTime Cardissuedate{ get; set; }
+
     }
 }

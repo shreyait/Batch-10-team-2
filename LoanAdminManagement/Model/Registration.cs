@@ -11,6 +11,10 @@ namespace LoanAdminManagement.Model
 
         [Required]
         [Column(TypeName = "varchar(20)")]
+        public string employeeId { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar(20)")]
         public string Name { get; set; }
 
         [Required]
@@ -20,6 +24,24 @@ namespace LoanAdminManagement.Model
         [Required]
         [Column(TypeName = "varchar(20)")]
         public string email { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar(20)")]
+        public string designation { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar(20)")]
+        public string department { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar(2)")]
+        public string Gender { get; set; }
+
+        [Required]
+        [Column(TypeName = "DateTime")] public DateTime dateofBirth { get; set; }
+
+        [Required]
+        [Column(TypeName = "DateTime")] public DateTime dateofJoining { get; set; }
 
         [Required]
         [Column(TypeName = "varchar(20)")]
