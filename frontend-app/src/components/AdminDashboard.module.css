@@ -5,7 +5,7 @@
 .rectangle {
     width: 6px;
     height: 25px;
-    background-color: #ff6f61;
+    background-color: black;
     margin-right: 8px;
 }
 .heading-container{
@@ -16,5 +16,5 @@ h3{
     margin-top: 3%;
     margin-bottom: 3%;
     margin-left: 3%;
-    color: #ff6f61;
+    color: black;
 }

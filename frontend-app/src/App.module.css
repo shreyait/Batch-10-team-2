@@ -18,11 +18,7 @@
 
 .NavHome {
   background-color: white !important;
-  box-shadow: #FF4742AA 0px 5px 15px;
+  box-shadow: black 0px 1px 15px;
 }
 
-.navlink {
-    /* display: block;
-    text-align: right; */
-    /* margin-left: 50%; */
-}
+

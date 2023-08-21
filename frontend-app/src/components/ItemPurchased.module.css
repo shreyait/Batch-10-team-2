@@ -29,7 +29,7 @@
 }
 
 .custom-table th{
-    background-color:  hwb(2 20% 13% / 0.8);
+    background-color:  hwb(10 2% 95% / 0.8);
     /* background-color: #ff6f61; */
     color: white;
     font-weight: bold;
@@ -44,6 +44,6 @@
 .rectangle {
     width: 6px;
     height: 25px;
-    background-color: #ff6f61;
+    background-color: black;
     margin-right: 8px;
 }

@@ -69,10 +69,7 @@ export default function Login() {
         >
           CREATE ACCOUNT
         </CustomButton>
-
-        <Routes>
-          <Route path="/register" element={<Register />}></Route>
-        </Routes>
+        {/* <Link to={"/AdminDashboard"}>Admin Login</Link> */}
       </Form>
     </div>
   );
