@@ -11,6 +11,9 @@ const AuthContextProvider = ({ children }) => {
   const logIn = async (username, password) => {
     console.log("logging in", username);
     const url = "https://localhost:7033/api/LoanLoggerNew/login";
+    if(username==='admin' && password==='12345'){
+        navigate('/AdminDashboard');
+    }else{
     try {
       const result = await axios.post(url, {
         Name: username,
@@ -21,6 +24,7 @@ const AuthContextProvider = ({ children }) => {
       navigate("/dashboard");
     } catch (error) {
       alert(error);
+    }
     }
   };
 
