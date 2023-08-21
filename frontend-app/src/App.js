@@ -6,6 +6,7 @@ import styles from "./App.module.css";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./components/home";
 import Login from "./components/login";
+import AdminDashboard from "./components/AdminDashboard";
 import NotFound from "./components/PageNotFound";
 import Dashboard from "./components/dashboard";
 import Register from "./components/register";
@@ -16,6 +17,9 @@ import logoPng from "./assets/lama-logo.png";
 import { useState, useContext } from "react";
 import { AuthContext } from "./context/auth";
 import background from "./assets/login-bg.jpg";
+import ItemMaster from "./components/ItemMaster";
+import CustomerMaster from "./components/customerMaster";
+import LoanMaster from "./components/LoanMaster";
 
 function App() {
   const { isLoggedIn, logOut } = useContext(AuthContext);
@@ -78,6 +82,11 @@ function App() {
             <Route path="/ItemPurchased" element={<ItemPurchased />} />
           )}
           <Route path="/register" element={<Register />} />
+            <Route path="/AdminDashboard" element={<AdminDashboard />} />
+          <Route path="/ItemMaster" element={<ItemMaster />} />
+          <Route path="/CustomerMaster" element={<CustomerMaster />} />
+          <Route path="/LoanMaster" element={<LoanMaster />} />
+
 
           <Route path="*" element={<NotFound />} />
         </Routes>
