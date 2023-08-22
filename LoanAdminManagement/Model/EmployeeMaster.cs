@@ -8,6 +8,11 @@ namespace LoanAdminManagement.Model
         [Key]
         [Column(TypeName ="Guid")]
         public Guid Id { get; set; }
+
+        [Required]
+        [Column(TypeName ="varchar(20)")]
+        public string empId { get; set; }
+
         [Required]
         [Column(TypeName = "varchar(20)")] 
         public  string EmployeeName { get; set; }

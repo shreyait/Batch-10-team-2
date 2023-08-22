@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoanAdminManagement.Migrations
 {
     [DbContext(typeof(DataContextdb))]
-    [Migration("20230820051430_first")]
+    [Migration("20230821163757_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -24,6 +24,32 @@ namespace LoanAdminManagement.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("LoanAdminManagement.Model.ApplyLoan", b =>
+                {
+                    b.Property<string>("empId")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("IDes")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("IMake")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Ivalue")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("empName")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("empId");
+
+                    b.ToTable("ApplyLoan");
+                });
 
             modelBuilder.Entity("LoanAdminManagement.Model.EmployeeCardDetails", b =>
                 {
@@ -89,6 +115,10 @@ namespace LoanAdminManagement.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(1)");
 
+                    b.Property<string>("empId")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
                     b.HasKey("Id");
 
                     b.ToTable("EmployeeMaster");
@@ -136,7 +166,7 @@ namespace LoanAdminManagement.Migrations
                         .HasColumnType("Guid");
 
                     b.Property<DateTime>("Cardissuedate")
-                        .HasColumnType("DateTime");
+                        .HasColumnType("Date");
 
                     b.Property<string>("Duration")
                         .IsRequired()
@@ -189,10 +219,10 @@ namespace LoanAdminManagement.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<DateTime>("dateofBirth")
-                        .HasColumnType("DateTime");
+                        .HasColumnType("Date");
 
                     b.Property<DateTime>("dateofJoining")
-                        .HasColumnType("DateTime");
+                        .HasColumnType("Date");
 
                     b.Property<string>("department")
                         .IsRequired()

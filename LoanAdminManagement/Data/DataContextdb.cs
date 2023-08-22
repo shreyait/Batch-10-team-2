@@ -16,5 +16,6 @@ namespace LoanAdminManagement.Data
         public DbSet<LoanAdminManagement.Model.EmployeeMaster>? EmployeeMaster { get; set; }
         public DbSet<LoanAdminManagement.Model.ItemDB>? ItemDB { get; set; }
         public DbSet<LoanAdminManagement.Model.LoanCardMaster>? LoanCardMaster { get; set; }
+        public DbSet<LoanAdminManagement.Model.ApplyLoan>? ApplyLoan { get; set; }
     }
 }

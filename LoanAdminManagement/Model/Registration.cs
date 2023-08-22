@@ -38,10 +38,16 @@ namespace LoanAdminManagement.Model
         public string Gender { get; set; }
 
         [Required]
-        [Column(TypeName = "DateTime")] public DateTime dateofBirth { get; set; }
+        [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}")]
+        public DateTime dateofBirth { get; set; }
 
         [Required]
-        [Column(TypeName = "DateTime")] public DateTime dateofJoining { get; set; }
+        [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime dateofJoining { get; set; }
 
         [Required]
         [Column(TypeName = "varchar(20)")]

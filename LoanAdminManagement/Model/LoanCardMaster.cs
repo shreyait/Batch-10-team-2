@@ -15,8 +15,12 @@ namespace LoanAdminManagement.Model
         [Column(TypeName = "varchar(15)")] public string LoanType { get; set; }
         [Required]
         [Column(TypeName = "varchar(2)")] public string Duration { get; set; }
+
         [Required]
-        [Column(TypeName ="DateTime")] public DateTime Cardissuedate{ get; set; }
+        [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime Cardissuedate{ get; set; }
 
     }
 }

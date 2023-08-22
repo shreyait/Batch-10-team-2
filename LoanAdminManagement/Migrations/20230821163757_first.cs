@@ -12,6 +12,21 @@ namespace LoanAdminManagement.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "ApplyLoan",
+                columns: table => new
+                {
+                    empId = table.Column<string>(type: "varchar(20)", nullable: false),
+                    empName = table.Column<string>(type: "varchar(20)", nullable: false),
+                    IDes = table.Column<string>(type: "varchar(20)", nullable: false),
+                    IMake = table.Column<string>(type: "varchar(20)", nullable: false),
+                    Ivalue = table.Column<string>(type: "varchar(20)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApplyLoan", x => x.empId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EmployeeCardDetails",
                 columns: table => new
                 {
@@ -43,6 +58,7 @@ namespace LoanAdminManagement.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    empId = table.Column<string>(type: "varchar(20)", nullable: false),
                     EmployeeName = table.Column<string>(type: "varchar(20)", nullable: false),
                     Designation = table.Column<string>(type: "varchar(25)", nullable: false),
                     Department = table.Column<string>(type: "varchar(25)", nullable: false),
@@ -78,7 +94,7 @@ namespace LoanAdminManagement.Migrations
                     Loanid = table.Column<string>(type: "varchar(20)", nullable: false),
                     LoanType = table.Column<string>(type: "varchar(15)", nullable: false),
                     Duration = table.Column<string>(type: "varchar(2)", nullable: false),
-                    Cardissuedate = table.Column<DateTime>(type: "DateTime", nullable: false)
+                    Cardissuedate = table.Column<DateTime>(type: "Date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,8 +126,8 @@ namespace LoanAdminManagement.Migrations
                     designation = table.Column<string>(type: "varchar(20)", nullable: false),
                     department = table.Column<string>(type: "varchar(20)", nullable: false),
                     Gender = table.Column<string>(type: "varchar(2)", nullable: false),
-                    dateofBirth = table.Column<DateTime>(type: "DateTime", nullable: false),
-                    dateofJoining = table.Column<DateTime>(type: "DateTime", nullable: false),
+                    dateofBirth = table.Column<DateTime>(type: "Date", nullable: false),
+                    dateofJoining = table.Column<DateTime>(type: "Date", nullable: false),
                     password = table.Column<string>(type: "varchar(20)", nullable: false)
                 },
                 constraints: table =>
@@ -123,6 +139,9 @@ namespace LoanAdminManagement.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ApplyLoan");
+
             migrationBuilder.DropTable(
                 name: "EmployeeCardDetails");
 

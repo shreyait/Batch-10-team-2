@@ -90,6 +90,15 @@ namespace LoanAdminManagement.Controllers
           {
               return Problem("Entity set 'DataContextdb.ItemDB'  is null.");
           }
+          //Testing the applyloan itemdb merging
+         // ApplyLoan applyLoan = new ApplyLoan();
+            //Registration registration = new Registration();
+            /*itemDB.Itemid = applyLoan.empId;
+            itemDB.ItemMake = applyLoan.IMake;
+            itemDB.IssueStatus = applyLoan.Ivalue;
+            itemDB.ItemDescription = applyLoan.IDes;
+            itemDB.ItemValue = applyLoan.Ivalue;
+            itemDB.ItemCategory = applyLoan.IMake;*/
             _context.ItemDB.Add(itemDB);
             await _context.SaveChangesAsync();
 
