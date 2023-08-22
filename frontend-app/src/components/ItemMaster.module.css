@@ -1,0 +1,18 @@
+.btn {
+    margin: 0;
+    /* position: absolute; */
+    top: 50%;
+    align-items: center;
+    background-color: red;
+    border: 1px solid red;
+    /* -ms-transform: translateY(-50%);
+    transform: translateY(-50%); */
+  }
+  
+  .btn:hover{
+    color: red;
+  }
+  .app {
+    border: solid;
+  }
+    

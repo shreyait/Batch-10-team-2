@@ -7,14 +7,15 @@
 }
 
 .custom-table{
+    margin-top: 2em;
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(226, 40, 40, 0.1);
     border-radius: 8px;
 }
 .table-container h3{
-    color: hwb(2 20% 13% / 0.8);;
+    color: red;
     margin:3%;
     font-weight: bold;
     text-transform: uppercase;
@@ -29,7 +30,7 @@
 }
 
 .custom-table th{
-    background-color:  hwb(2 20% 13% / 0.8);
+    background-color:  hwb(0 15% 15% / 0.8);
     /* background-color: #ff6f61; */
     color: white;
     font-weight: bold;
@@ -44,6 +45,6 @@
 .rectangle {
     width: 6px;
     height: 25px;
-    background-color: #ff6f61;
+    background-color: red;
     margin-right: 8px;
 }

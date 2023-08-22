@@ -1,10 +1,10 @@
 /* CSS */
 
 .button-24 {
-  background: #FF4742;
-  border: 1px solid #FF4742;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  background-color: red;
+  border: 1px solid red;
+  /* border-radius: 6px; */
+  box-shadow: rgba(211, 43, 43, 0.1) 1px 2px 4px;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
@@ -24,13 +24,14 @@
   touch-action: manipulation;
   vertical-align: middle;
   text-decoration: none;
+  /* border-radius: 25%; */
 }
 
 .button-24:hover,
 .button-24:active {
   background-color: initial;
   background-position: 0 0;
-  color: #FF4742;
+  color: red;
 }
 
 .button-24:active {

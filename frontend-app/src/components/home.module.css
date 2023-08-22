@@ -1,15 +1,17 @@
 .cardStyle {
-	width: 80%;
+	width: 90%;
 	flex-direction: row;
 	align-items: center;
+	height: 75vh;
 	margin: 10vh auto;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	/* box-shadow: #FF4742AA 0px 5px 15px; */
 }
 
 .cardImg {
 	width: 80%;
-	height: 70vh;
+	height: 100%;
+	/* border-radius: 15px; */
 }
 
 .homelogo {
@@ -17,6 +19,7 @@
 	height: 8rem;
 	display: block;
   	margin: auto;
+	border-radius: 15px;
 }
 
 .cardtext {

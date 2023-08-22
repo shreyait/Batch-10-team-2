@@ -6,13 +6,20 @@
 
 .NavImage {
   height: 60px;
+  border-radius: 50%;
 }
 
 .NavLink{
   font-weight: bold;
 }
 
+.navlinks {
+  font-weight: bold;
+}
+
 .NavHome {
   background-color: white !important;
-  box-shadow: #FF4742AA 0px 5px 15px;
+  box-shadow: black 0px 1px 15px;
 }
+
+

@@ -2,9 +2,9 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
-import ViewLoan from "./../assets/View_loan.jpg";
-import AppliedLoan from "./../assets/Applied_loan.jpg";
-import ItemCollection from "./../assets/Item_collection.jpg";
+import ViewLoan from "./../assets/CustomerData.jpg";
+import AppliedLoan from "./../assets/ItemData.jpg";
+import ItemCollection from "./../assets/LoanData.jpg";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import CustomButton from "./customButton";
 import styles from "./dashboard.module.css";
@@ -25,7 +25,7 @@ const Dashboard = () => {
       <h3 style={{ textAlign: "center", margin: "3%" }}>User Dashboard</h3>
       <CardGroup>
         <Card className={styles["cardStyle"]}>
-          <Card.Img variant="top" src={ViewLoan} style={{ height: "12rem" }} />
+          <Card.Img variant="top" src={ViewLoan} style={{ height: "15rem" }} />
           <Card.Body>
             <Card.Title>View Loans</Card.Title>
             <Card.Text>
@@ -41,7 +41,7 @@ const Dashboard = () => {
           <Card.Img
             variant="top"
             src={AppliedLoan}
-            style={{ height: "12rem" }}
+            style={{ height: "15rem" }}
           />
           <Card.Body>
             <Card.Title>Available Loans</Card.Title>
@@ -58,7 +58,7 @@ const Dashboard = () => {
           <Card.Img
             variant="top"
             src={ItemCollection}
-            style={{ height: "12rem" }}
+            style={{ height: "15rem" }}
           />
           <Card.Body>
             <Card.Title>Items Purchased</Card.Title>
