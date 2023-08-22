@@ -3,14 +3,14 @@
   /* position: absolute; */
   top: 50%;
   align-items: center;
-  background-color: black;
-  border: 1px solid black;
+  background-color: red;
+  border: 1px solid red;
   /* -ms-transform: translateY(-50%);
   transform: translateY(-50%); */
 }
 
 .btn:hover{
-  color: black;
+  color: red;
 }
 .app {
   border: solid;

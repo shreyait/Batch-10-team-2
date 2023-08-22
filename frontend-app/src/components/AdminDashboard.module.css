@@ -5,7 +5,7 @@
 .rectangle {
     width: 6px;
     height: 25px;
-    background-color: black;
+    background-color: red;
     margin-right: 8px;
 }
 .heading-container{

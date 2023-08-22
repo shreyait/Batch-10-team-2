@@ -11,6 +11,7 @@
 .cardImg {
 	width: 80%;
 	height: 100%;
+	/* border-radius: 15px; */
 }
 
 .homelogo {
@@ -18,6 +19,7 @@
 	height: 8rem;
 	display: block;
   	margin: auto;
+	border-radius: 15px;
 }
 
 .cardtext {
