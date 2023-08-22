@@ -7,6 +7,8 @@ import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./components/home";
 import Login from "./components/login";
 import AdminDashboard from "./components/AdminDashboard";
+import AddEmployee from "./components/AddEmployee";
+import EditEmployeeData from './components/EditEmployeeData';
 import NotFound from "./components/PageNotFound";
 import Dashboard from "./components/dashboard";
 import Register from "./components/register";
@@ -86,7 +88,8 @@ function App() {
           <Route path="/ItemMaster" element={<ItemMaster />} />
           <Route path="/CustomerMaster" element={<CustomerMaster />} />
           <Route path="/LoanMaster" element={<LoanMaster />} />
-
+          <Route path="/AddEmployee" element={<AddEmployee />} />
+          <Route path="/EditEmployeeData" element={<EditEmployeeData />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
