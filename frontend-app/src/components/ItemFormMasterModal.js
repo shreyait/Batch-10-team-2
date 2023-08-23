@@ -16,6 +16,9 @@ const ItemFormModal = ({ show, onHide, addItem }) => {
     const newItem = {
       item_id,
       item_description,
+      item_status,
+      item_make,
+      item_category,
       item_valuation: parseInt(item_valuation),
     };
     await addItem(newItem);
