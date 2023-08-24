@@ -24,8 +24,9 @@ namespace LoanAdminManagement.Migrations
 
             modelBuilder.Entity("LoanAdminManagement.Model.ApplyLoan", b =>
                 {
-                    b.Property<string>("empId")
-                        .HasColumnType("varchar(20)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("Guid");
 
                     b.Property<string>("IDes")
                         .IsRequired()
@@ -39,11 +40,15 @@ namespace LoanAdminManagement.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
+                    b.Property<string>("empId")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
                     b.Property<string>("empName")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.HasKey("empId");
+                    b.HasKey("Id");
 
                     b.ToTable("ApplyLoan");
                 });
@@ -92,9 +97,8 @@ namespace LoanAdminManagement.Migrations
 
             modelBuilder.Entity("LoanAdminManagement.Model.EmployeeMaster", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("Guid");
+                    b.Property<string>("empId")
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Department")
                         .IsRequired()
@@ -112,20 +116,21 @@ namespace LoanAdminManagement.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(1)");
 
-                    b.Property<string>("empId")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
+                    b.Property<DateTime>("dateofBirth")
+                        .HasColumnType("Date");
 
-                    b.HasKey("Id");
+                    b.Property<DateTime>("dateofJoining")
+                        .HasColumnType("Date");
+
+                    b.HasKey("empId");
 
                     b.ToTable("EmployeeMaster");
                 });
 
             modelBuilder.Entity("LoanAdminManagement.Model.ItemDB", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("Guid");
+                    b.Property<string>("Itemid")
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("IssueStatus")
                         .IsRequired()
@@ -147,23 +152,15 @@ namespace LoanAdminManagement.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(6)");
 
-                    b.Property<string>("Itemid")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
-
-                    b.HasKey("Id");
+                    b.HasKey("Itemid");
 
                     b.ToTable("ItemDB");
                 });
 
             modelBuilder.Entity("LoanAdminManagement.Model.LoanCardMaster", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("Guid");
-
-                    b.Property<DateTime>("Cardissuedate")
-                        .HasColumnType("Date");
+                    b.Property<string>("Loanid")
+                        .HasColumnType("varchar(20");
 
                     b.Property<string>("Duration")
                         .IsRequired()
@@ -173,11 +170,7 @@ namespace LoanAdminManagement.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(15)");
 
-                    b.Property<string>("Loanid")
-                        .IsRequired()
-                        .HasColumnType("varchar(20");
-
-                    b.HasKey("Id");
+                    b.HasKey("Loanid");
 
                     b.ToTable("LoanCardMaster");
                 });

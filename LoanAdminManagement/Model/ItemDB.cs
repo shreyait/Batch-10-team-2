@@ -5,10 +5,8 @@ namespace LoanAdminManagement.Model
 {
     public class ItemDB
     {
+        
         [Key]
-        [Column(TypeName ="Guid")]
-        public Guid Id { get; set; }
-        [Required]
         [Column(TypeName ="varchar(20)")]
         public string Itemid { get; set; }
         [Required]

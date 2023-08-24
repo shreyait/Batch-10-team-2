@@ -6,6 +6,10 @@ namespace LoanAdminManagement.Model
     public class ApplyLoan
     {
         [Key]
+        [Column(TypeName ="Guid")]
+        public Guid Id { get; set; }
+
+        [Required]
         [Column(TypeName ="varchar(20)")]
         public string empId { get; set; }
 

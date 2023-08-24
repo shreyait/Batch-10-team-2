@@ -53,9 +53,9 @@ namespace LoanAdminManagement.Controllers
         // PUT: api/ApplyLoans/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutApplyLoan(string id, ApplyLoan applyLoan)
+        public async Task<IActionResult> PutApplyLoan(Guid id, ApplyLoan applyLoan)
         {
-            if (id != applyLoan.empId)
+            if (id != applyLoan.Id)
             {
                 return BadRequest();
             }
@@ -90,41 +90,15 @@ namespace LoanAdminManagement.Controllers
           {
               return Problem("Entity set 'DataContextdb.ApplyLoan'  is null.");
           }
-          ItemDB itemDB = new ItemDB();
-            string originalValue = applyLoan.IMake;
-            string shortvalue = originalValue.Substring(0, 1);
-            itemDB.Itemid = applyLoan.empId;
-            itemDB.ItemMake = applyLoan.IMake;
-            itemDB.IssueStatus = shortvalue;
-            itemDB.ItemDescription = applyLoan.IDes;
-            itemDB.ItemValue = applyLoan.Ivalue;
-            itemDB.ItemCategory = applyLoan.IMake;
-
-            _context.ItemDB.Add(itemDB);
             _context.ApplyLoan.Add(applyLoan);
+            await _context.SaveChangesAsync();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ApplyLoanExists(applyLoan.empId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetApplyLoan", new { id = applyLoan.empId }, applyLoan);
+            return CreatedAtAction("GetApplyLoan", new { id = applyLoan.Id }, applyLoan);
         }
 
         // DELETE: api/ApplyLoans/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteApplyLoan(string id)
+        public async Task<IActionResult> DeleteApplyLoan(Guid id)
         {
             if (_context.ApplyLoan == null)
             {
@@ -142,9 +116,9 @@ namespace LoanAdminManagement.Controllers
             return NoContent();
         }
 
-        private bool ApplyLoanExists(string id)
+        private bool ApplyLoanExists(Guid id)
         {
-            return (_context.ApplyLoan?.Any(e => e.empId == id)).GetValueOrDefault();
+            return (_context.ApplyLoan?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

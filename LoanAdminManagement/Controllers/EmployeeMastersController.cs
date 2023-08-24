@@ -34,7 +34,7 @@ namespace LoanAdminManagement.Controllers
 
         // GET: api/EmployeeMasters/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<EmployeeMaster>> GetEmployeeMaster(Guid id)
+        public async Task<ActionResult<EmployeeMaster>> GetEmployeeMaster(string id)
         {
           if (_context.EmployeeMaster == null)
           {
@@ -53,9 +53,9 @@ namespace LoanAdminManagement.Controllers
         // PUT: api/EmployeeMasters/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployeeMaster(Guid id, EmployeeMaster employeeMaster)
+        public async Task<IActionResult> PutEmployeeMaster(string id, EmployeeMaster employeeMaster)
         {
-            if (id != employeeMaster.Id)
+            if (id != employeeMaster.empId)
             {
                 return BadRequest();
             }
@@ -91,14 +91,28 @@ namespace LoanAdminManagement.Controllers
               return Problem("Entity set 'DataContextdb.EmployeeMaster'  is null.");
           }
             _context.EmployeeMaster.Add(employeeMaster);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (EmployeeMasterExists(employeeMaster.empId))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-            return CreatedAtAction("GetEmployeeMaster", new { id = employeeMaster.Id }, employeeMaster);
+            return CreatedAtAction("GetEmployeeMaster", new { id = employeeMaster.empId }, employeeMaster);
         }
 
         // DELETE: api/EmployeeMasters/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployeeMaster(Guid id)
+        public async Task<IActionResult> DeleteEmployeeMaster(string id)
         {
             if (_context.EmployeeMaster == null)
             {
@@ -116,9 +130,9 @@ namespace LoanAdminManagement.Controllers
             return NoContent();
         }
 
-        private bool EmployeeMasterExists(Guid id)
+        private bool EmployeeMasterExists(string id)
         {
-            return (_context.EmployeeMaster?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.EmployeeMaster?.Any(e => e.empId == id)).GetValueOrDefault();
         }
     }
 }

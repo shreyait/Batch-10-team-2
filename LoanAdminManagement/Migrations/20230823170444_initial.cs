@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LoanAdminManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,6 +15,7 @@ namespace LoanAdminManagement.Migrations
                 name: "ApplyLoan",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     empId = table.Column<string>(type: "varchar(20)", nullable: false),
                     empName = table.Column<string>(type: "varchar(20)", nullable: false),
                     IDes = table.Column<string>(type: "varchar(20)", nullable: false),
@@ -23,7 +24,7 @@ namespace LoanAdminManagement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ApplyLoan", x => x.empId);
+                    table.PrimaryKey("PK_ApplyLoan", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,23 +58,23 @@ namespace LoanAdminManagement.Migrations
                 name: "EmployeeMaster",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     empId = table.Column<string>(type: "varchar(20)", nullable: false),
                     EmployeeName = table.Column<string>(type: "varchar(20)", nullable: false),
                     Designation = table.Column<string>(type: "varchar(25)", nullable: false),
                     Department = table.Column<string>(type: "varchar(25)", nullable: false),
-                    Gender = table.Column<string>(type: "varchar(1)", nullable: false)
+                    Gender = table.Column<string>(type: "varchar(1)", nullable: false),
+                    dateofBirth = table.Column<DateTime>(type: "Date", nullable: false),
+                    dateofJoining = table.Column<DateTime>(type: "Date", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeeMaster", x => x.Id);
+                    table.PrimaryKey("PK_EmployeeMaster", x => x.empId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ItemDB",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Itemid = table.Column<string>(type: "varchar(20)", nullable: false),
                     ItemDescription = table.Column<string>(type: "varchar(25)", nullable: false),
                     IssueStatus = table.Column<string>(type: "varchar(1)", nullable: false),
@@ -83,22 +84,20 @@ namespace LoanAdminManagement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemDB", x => x.Id);
+                    table.PrimaryKey("PK_ItemDB", x => x.Itemid);
                 });
 
             migrationBuilder.CreateTable(
                 name: "LoanCardMaster",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Loanid = table.Column<string>(type: "varchar(20)", nullable: false),
                     LoanType = table.Column<string>(type: "varchar(15)", nullable: false),
-                    Duration = table.Column<string>(type: "varchar(2)", nullable: false),
-                    Cardissuedate = table.Column<DateTime>(type: "Date", nullable: false)
+                    Duration = table.Column<string>(type: "varchar(2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LoanCardMaster", x => x.Id);
+                    table.PrimaryKey("PK_LoanCardMaster", x => x.Loanid);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,7 +117,7 @@ namespace LoanAdminManagement.Migrations
                 name: "Registrations",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier ", nullable: false),
                     employeeId = table.Column<string>(type: "varchar(20)", nullable: false),
                     Name = table.Column<string>(type: "varchar(20)", nullable: false),
                     username = table.Column<string>(type: "varchar(20)", nullable: false),
