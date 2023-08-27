@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
+import styles from './AddEmployee.module.css';
 import CustomButton from "./customButton";
 const AddEmployee = () => 
 {
@@ -22,15 +23,15 @@ const handleSubmit = (event) => {
     event.stopPropagation();
   } else {
     const data = {
-        name: name,
-        designation: designation,
-        department: department,
+        EmployeeName: name,
+        Designation: designation,
+        Department: department,
         dateofBirth: DOB,
         dateofJoining: DOJ,
         empId: empID,
         Gender: gender,
     };
-const url = 'https://localhost:7033/api/Registrations';
+const url = 'https://localhost:7033/api/EmployeeMasters';
 axios.post(url,data).then((result) =>{
      alert("employee added successfully");
      navigate('/customerMaster');
@@ -47,8 +48,8 @@ const [name, setname] = useState("");
 const [gender, setgender] = useState("");
 const [department, setdep] = useState("");
 const [designation, setdesignation] = useState("");
-const [DOB, setDOB] = useState("");
-const [DOJ, setDOJ] = useState("");
+const [DOB, setDOB] = useState(new Date());
+const [DOJ, setDOJ] = useState(new Date());
 const [empID, setID] = useState("");
 const handleIdChange = (value) => {
   setID(value);
@@ -73,7 +74,7 @@ const handleDOJChange = (value) => {
 };
 
 return (
-  <div>
+  <div className={styles["form"]}>
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} md="6" controlId="validationCustom01">

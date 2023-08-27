@@ -22,6 +22,7 @@ import background from "./assets/login-bg.jpg";
 import ItemMaster from "./components/ItemMaster";
 import CustomerMaster from "./components/customerMaster";
 import LoanMaster from "./components/LoanMaster";
+import AdminLogin from "./components/adminLogin";
 
 function App() {
   const { isLoggedIn, logOut } = useContext(AuthContext);
@@ -51,8 +52,13 @@ function App() {
                   LOGIN
                 </Nav.Link>
               )}
+              {!isLoggedIn && (
+                <Nav.Link as={Link} to="/adminLogin">
+                  ADMIN
+                </Nav.Link>
+              )}
             </Nav>
-
+            
             <Nav>
               {isLoggedIn && (
                 <Nav.Link
@@ -90,7 +96,7 @@ function App() {
           <Route path="/LoanMaster" element={<LoanMaster />} />
           <Route path="/AddEmployee" element={<AddEmployee />} />
           <Route path="/EditEmployeeData" element={<EditEmployeeData />} />
-
+            <Route path="/adminLogin" element={<AdminLogin/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

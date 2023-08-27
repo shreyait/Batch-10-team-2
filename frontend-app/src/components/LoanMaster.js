@@ -10,6 +10,7 @@ import styles from "./LoanMaster.module.css";
 function LoanMaster() {
   const [loans, setLoans] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [isEdit, setisEdit] = useState(false);
 
   useEffect(() => {
     fetchLoans();
@@ -17,7 +18,7 @@ function LoanMaster() {
 
   const fetchLoans = async () => {
     try {
-      const response = await axios.get("/api/loans");
+      const response = await axios.get("https://localhost:7033/api/LoanCardMasters");
       setLoans(response.data);
     } catch (error) {
       console.error("Error fetching loans:", error);
@@ -26,6 +27,7 @@ function LoanMaster() {
 
   const openModal = () => {
     setShowModal(true);
+
   };
 
   const closeModal = () => {
@@ -34,8 +36,8 @@ function LoanMaster() {
 
   const addLoan = async (newLoan) => {
     try {
-      await axios.post("/api/loans", newLoan);
-      fetchLoans();
+      await axios.post("https://localhost:7033/api/LoanCardMasters", newLoan);
+      await fetchLoans();
     } catch (error) {
       console.error("Error adding loan:", error);
     }
@@ -43,8 +45,8 @@ function LoanMaster() {
 
   const editLoan = async (id, updatedLoan) => {
     try {
-      await axios.put(`/api/loans/${id}`, updatedLoan);
-      fetchLoans();
+      await axios.put(`https://localhost:7033/api/LoanCardMasters/${id}`, updatedLoan);
+      await fetchLoans();
     } catch (error) {
       console.error("Error editing loan:", error);
     }
@@ -52,8 +54,8 @@ function LoanMaster() {
 
   const deleteLoan = async (id) => {
     try {
-      await axios.delete(`/api/loans/${id}`);
-      fetchLoans();
+      await axios.delete(`https://localhost:7033/api/LoanCardMasters/${id}`);
+      await fetchLoans();
     } catch (error) {
       console.error("Error deleting loan:", error);
     }
@@ -62,7 +64,7 @@ function LoanMaster() {
   return (
     <div className="App">
       <Container>
-        <h3>Loan Cards Management System</h3>
+        <h3>| Loan Cards Management System</h3>
 
         <CustomButton className={styles["btn"]} onClick={openModal}>
           Add New Loan Card

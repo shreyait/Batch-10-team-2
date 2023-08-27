@@ -20,7 +20,7 @@ const ItemMasterTable = ({ items, editItem, deleteItem }) => {
       <tbody>
         {items.map((item) => (
           <ItemTableRow
-            key={item.id}
+            key={item.item_id}
             item={item}
             editItem={editItem}
             deleteItem={deleteItem}

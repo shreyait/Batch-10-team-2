@@ -2,12 +2,24 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from "./ItemPurchased.module.css";
 const ItemPurchased = () => {
-    const [data, setData] = useState([])
+   
+    let data1=window.sessionStorage.getItem("UserDataSession");
+    data1=JSON.parse(data1);
+    console.log(data1);
+    // let EmployeeID = data1.employeeId;
+    let data2=window.sessionStorage.getItem("loginData");
+    data2=JSON.parse(data2);
+    console.log(data2);
+    console.log(data2.employeeId)
+    let EmpID = data2.employeeId;
+
+    const [data, setData] = useState([]);
     useEffect(()=> {
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://localhost:7033/api/ApplyLoans/' + EmpID)
         .then(res => setData(res.data))
         .catch(err => console.log(err));
     }, [])
+    console.log(data);
     return (
         
         <div  className={styles["table-container"]}>
@@ -28,17 +40,17 @@ const ItemPurchased = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            data.map((user,index) => {
-                                return <tr key={index}>
-                                    <td>{user.id}</td>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.address.city}</td>
-                                    <td>{user.id}</td>
-                                </tr>
-                            })
-                        }
+                    {data.map((data, index) => {
+              return (
+                <tr key={index}>
+                <td>{data.id}</td>
+                                    <td>{data.iDes}</td>
+                                    <td>{data.iMake}</td>
+                                    <td>{data.empName}</td>
+                                    <td>{data.ivalue}</td>
+                </tr>
+              );
+            })}
                     </tbody>
                 </table>
             </div>

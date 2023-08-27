@@ -1,32 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button } from "react-bootstrap";
+import ItemFormModal from "./ItemFormMasterModal";
 
 const ItemTableRow = ({ item, editItem, deleteItem }) => {
+
+  const [showModal, setShowModal] = useState(false);
+
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <tr>
-      <td>{item.item_id}</td>
-      <td>{item.item_description}</td>
-      <td>{item.item_status}</td>
-      <td>{item.item_make}</td>
-      <td>{item.item_category}</td>
-      <td>{item.item_valuation}</td>
+      <td>{item.itemid}</td>
+      <td>{item.itemDescription}</td>
+      <td>{item.issueStatus}</td>
+      <td>{item.itemMake}</td>
+      <td>{item.itemCategory}</td>
+      <td>{item.itemValue}</td>
       <td>
+      <ItemFormModal isEdit={true} show={showModal} onHide={closeModal} addItem={(input)=>editItem(item.itemid, input)} a={item.itemid} b={item.itemDescription} c={item.issueStatus} d={item.itemMake} g={item.itemCategory} f={item.itemValue}/>
         <Button
-          variant="secondary"
-          onClick={() =>
-            editItem(item.item_id, {
-              item_id: item.item_id,
-              item_description: item.item_description,
-              item_status: item.item_status,
-              item_make: item.item_make,
-              item_category: item.item_category,
-              item_valuation: item.item_valuation,
-            })
-          }
+          variant="info"
+          onClick={openModal}
         >
           Edit
         </Button>
-        <Button variant="danger" onClick={() => deleteItem(item.item_id)}>
+        <Button variant="warning" onClick={() => deleteItem(item.itemid)}>
           Delete
         </Button>
       </td>

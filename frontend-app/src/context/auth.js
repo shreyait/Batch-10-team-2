@@ -8,9 +8,9 @@ const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [isLoggedIn, setLoginState] = useState(false);
 
-  const logIn = async (username, password) => {
+  const logIn = async (username, password,employeeId = "") => {
     console.log("logging in", username);
-    const url = "https://localhost:7033/api/LoanLoggerNew/login";
+    const url = "https://localhost:7033/api/LoanLoggerNew";
     if (username === "admin" && password === "12345") {
       setLoginState(true);
       navigate("/AdminDashboard");
@@ -20,8 +20,15 @@ const AuthContextProvider = ({ children }) => {
           Name: username,
           password: password,
         });
-        alert(result.data);
+        console.log(result.data);
         setLoginState(true);
+        const loginData={
+          Name: username,
+          password: password,
+          employeeId:employeeId
+        }
+        window.sessionStorage.setItem("loginData",JSON.stringify(loginData));
+
         navigate("/dashboard");
       } catch (error) {
         alert(error);
@@ -49,19 +56,21 @@ const AuthContextProvider = ({ children }) => {
     const url = "https://localhost:7033/api/Registrations";
     console.log("registering", username);
     try {
-      const result = await axios.post(url, {
-        userName: username,
+      const UserData= {
+        username: username,
         password: password,
-        name: name,
+        Name: name,
         email: email,
         designation: designation,
         department: department,
         dateofBirth: DOB,
         dateofJoining: DOJ,
-        empId: empID,
+        employeeId: empID,
         Gender: gender,
-      });
-      alert(result.data);
+      }
+      const result = await axios.post(url, UserData);
+      console.log(result.data);
+      window.sessionStorage.setItem("UserDataSession",JSON.stringify(UserData));
       setLoginState(true);
       navigate("/dashboard");
     } catch (error) {

@@ -47,3 +47,14 @@
     background-color: #ff6f61;
     margin-right: 8px;
 }
+
+.btnEdit {
+    background-color: #17A2B8;
+    color: #17A2B8;
+}
+
+.btnDel {
+    margin-top: 3px;
+    background-color: #FFC107;
+    color: #FFC107;
+}

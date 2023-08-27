@@ -50,8 +50,8 @@ export default function Register() {
   const [gender, setgender] = useState("");
   const [department, setdep] = useState("");
   const [designation, setdesignation] = useState("");
-  const [DOB, setDOB] = useState("");
-  const [DOJ, setDOJ] = useState("");
+  const [DOB, setDOB] = useState(new Date());
+  const [DOJ, setDOJ] = useState(new Date());
   const [empID, setID] = useState("");
   const handleIdChange = (value) => {
     setID(value);
@@ -235,9 +235,10 @@ export default function Register() {
               required
               onChange={(e) => handleGenderChange(e.target.value)}
             >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              <option value="N">Prefer not to say</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+              <option value="O">Other</option>
             </Form.Select>
             <Form.Control.Feedback type="invalid">
               Please select a option.

@@ -15,8 +15,8 @@ const [name, setname] = useState("");
 const [gender, setgender] = useState("");
 const [department, setdep] = useState("");
 const [designation, setdesignation] = useState("");
-const [DOB, setDOB] = useState("");
-const [DOJ, setDOJ] = useState("");
+const [DOB, setDOB] = useState(new Date());
+const [DOJ, setDOJ] = useState(new Date());
 const [empID, setID] = useState("");
 const handleIdChange = (value) => {
   setID(value);
@@ -41,22 +41,22 @@ const handleDesignationChange = (value) => {
   };
 
   const fetchdata = (empId) =>{
-    axios.get("" + empId).then((response) => {
+    axios.get("https://localhost:7033/api/EmployeeMasters/"+props.id).then((response) => {
         console.log(response.data);
-        setID(response.data.employeeId);
+        setID(response.data.empId);
         setname(response.data.employeeName);
         setgender(response.data.designation);
         setdep(response.data.department);
         setdesignation(response.data.gender);
-        setDOB(response.data.dateOfBirth);
-        setDOJ(response.data.dateOfJoining);
+        setDOB(response.data.dateofBirth);
+        setDOJ(response.data.dateofJoining);
 
     }).catch(error => {
         alert(error);
     })
   }
  useEffect(()=>{
-    fetchdata(props.employeeId)
+    fetchdata(props.empId)
  }, []);
 
  function handleLogin(e){
@@ -77,17 +77,17 @@ const handleDesignationChange = (value) => {
      event.stopPropagation();
    } else {
      const data = {
-         name: name,
-         designation: designation,
-         department: department,
+         EmployeeName: name,
+         Designation: designation,
+         Department: department,
          dateofBirth: DOB,
          dateofJoining: DOJ,
          empId: empID,
          Gender: gender,
      };
- const putUrl = 'https://localhost:7033/api/Registrations';
+ const putUrl = 'https://localhost:7033/api/EmployeeMasters/'+props.id;
  axios.put(putUrl,data).then((result) =>{
-      alert("employee editted successfully");
+      console.log("employee editted successfully");
     //   navigate('/customerMaster');
     window.location.reload();
  }).catch((error)=>{
@@ -188,8 +188,8 @@ setValidated(true);
                 required
                 onChange={(e) => handleGenderChange(e.target.value)}
               >
-                <option value="M">Male</option>
-                <option value="F">Female</option>
+                <option value="M">M</option>
+                <option value="F">F</option>
               </Form.Select>
               <Form.Control.Feedback type="invalid">
                 Please select a option.
@@ -198,12 +198,12 @@ setValidated(true);
           </Row>
           <CustomButton  type="submit" onClick={handleSubmit}>
         Edit
-          </CustomButton>
-
-        </Form>
-        <CustomButton  type="submit" onClick={props.toggle}>
+          </CustomButton> &nbsp; &nbsp;
+          <CustomButton  type="submit" onClick={props.toggle}>
         Close
           </CustomButton>
+        </Form>
+       
       </div>  
     );
 }

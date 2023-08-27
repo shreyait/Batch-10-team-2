@@ -17,7 +17,7 @@ function ItemMaster() {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get("/api/items");
+      const response = await axios.get("https://localhost:7033/api/ItemDBs");
       setItems(response.data);
     } catch (error) {
       console.error("Error fetching loans:", error);
@@ -34,8 +34,8 @@ function ItemMaster() {
 
   const addItem = async (newItem) => {
     try {
-      await axios.post("/api/loans", newItem);
-      fetchItems();
+      await axios.post("https://localhost:7033/api/ItemDBs", newItem);
+      await fetchItems();
     } catch (error) {
       console.error("Error adding loan:", error);
     }
@@ -43,8 +43,8 @@ function ItemMaster() {
 
   const editItem = async (id, updatedItem) => {
     try {
-      await axios.put(`/api/loans/${id}`, updatedItem);
-      fetchItems();
+      await axios.put(`https://localhost:7033/api/ItemDBs/${id}`, updatedItem);
+      await fetchItems();
     } catch (error) {
       console.error("Error editing loan:", error);
     }
@@ -52,8 +52,8 @@ function ItemMaster() {
 
   const deleteItem = async (id) => {
     try {
-      await axios.delete(`/api/loans/${id}`);
-      fetchItems();
+      await axios.delete(`https://localhost:7033/api/ItemDBs/${id}`);
+      await fetchItems();
     } catch (error) {
       console.error("Error deleting loan:", error);
     }
@@ -62,7 +62,7 @@ function ItemMaster() {
   return (
     <div className="App">
       <Container>
-        <h3>Items Management System</h3>
+        <h3>| Items Management System</h3>
 
         <CustomButton className={styles["btn"]} onClick={openModal}>
           Add New Item

@@ -13,12 +13,16 @@ export default function Login() {
   const { logIn } = useContext(AuthContext);
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+  const [employeeId, setempid] = useState("");
   const handleUsernameChange = (value) => {
     setusername(value);
   };
   const handlePasswordChange = (value) => {
     setpassword(value);
   };
+  const handleempidChange = (value) => {
+    setempid(value);
+  }
   const navigate = useNavigate();
 
   const navigateRegister = () => {
@@ -27,7 +31,7 @@ export default function Login() {
 
   const handleSave = async (event) => {
     event.preventDefault();
-    await logIn(username, password);
+    await logIn(username, password,employeeId);
     //navigate("/dashboard");
   };
 
@@ -43,6 +47,16 @@ export default function Login() {
             type="text"
             placeholder="Enter username"
             onChange={(e) => handleUsernameChange(e.target.value)}
+          />
+          <Form.Text className="text-muted"></Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Employee ID</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter employee id"
+            onChange={(e) => handleempidChange(e.target.value)}
           />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>

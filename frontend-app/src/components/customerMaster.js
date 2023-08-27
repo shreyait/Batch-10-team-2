@@ -9,8 +9,8 @@ import CustomButton from "./customButton";
 import { Link } from "react-router-dom";
 
 const CustomerMaster = () => {
-  const baseURL = "";
-  const deleteBaseURL = "";
+  const baseURL = "https://localhost:7033/api/EmployeeMasters";
+  const deleteBaseURL = "https://localhost:7033/api/EmployeeMasters/";
 
   const [lists, setList] = useState([]);
   const [box, setBox] = useState(false);
@@ -20,7 +20,7 @@ const CustomerMaster = () => {
     axios
       .delete(deleteBaseURL + empId)
       .then((response) => {
-        alert("Employee deleted successfully");
+        console.log("Employee deleted successfully");
         window.location.reload();
       })
       .catch((error) => {
@@ -45,7 +45,7 @@ const CustomerMaster = () => {
 
   const fetchdata = (empId) => {
     axios
-      .get("" + empId)
+      .get("https://localhost:7033/api/EmployeeMasters/" + empId)
       .then((response) => {
         console.log(response);
       })
@@ -83,33 +83,33 @@ const CustomerMaster = () => {
             {lists.map((li, index) => {
               return (
                 <tr key={index}>
-                  <td>{li.employeeId}</td>
+                  <td>{li.empId}</td>
                   <td>{li.employeeName}</td>
                   <td>{li.designation}</td>
                   <td>{li.department}</td>
                   <td>{li.gender}</td>
-                  <td>{li.dateOfBirth}</td>
-                  <td>{li.dateOfJoining}</td>
+                  <td>{li.dateofBirth}</td>
+                  <td>{li.dateofJoining}</td>
                   <td>
-                    <Button
+                    <CustomButton
                       onClick={() => {
-                        setEmpId(li.employeeId);
+                        setEmpId(li.empId);
                         setBox(!box);
-                        fetchdata(li.employeeId);
+                        fetchdata(li.empId);
                       }}
-                      className="btn btn-success"
+                      className="btnEdit"
                     >
                       Edit
-                    </Button>{" "}
-                    <Button
+                    </CustomButton>
+                    <CustomButton
                       type="button"
                       onClick={() => {
-                        deleteEmployee(li.employeeId);
+                        deleteEmployee(li.empId);
                       }}
-                      className="btn btn-danger"
+                      className="btnDel"
                     >
                       Delete
-                    </Button>
+                    </CustomButton>
                   </td>
                 </tr>
               );

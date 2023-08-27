@@ -7,7 +7,7 @@ const DisplayLoanCards = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get("https://localhost:7033/api/LoanCardMasters")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -25,17 +25,17 @@ const DisplayLoanCards = () => {
               <th>Loan ID</th>
               <th>Loan Type</th>
               <th>Duration</th>
-              <th>Card Issue date</th>
+              {/* <th>Card Issue date</th> */}
             </tr>
           </thead>
           <tbody>
             {data.map((user, index) => {
               return (
                 <tr key={index}>
-                  <td>{user.id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.address.city}</td>
+                  <td>{user.loanid}</td>
+                  <td>{user.loanType}</td>
+                  <td>{user.duration}</td>
+                  {/* <td>{user.address.city}</td> */}
                 </tr>
               );
             })}

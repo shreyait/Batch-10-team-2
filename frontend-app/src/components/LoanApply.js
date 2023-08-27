@@ -22,13 +22,13 @@ const LoanApply = () => {
       event.stopPropagation();
     } else {
       const data = {
-        EmpId: EmpId,
-        ICategory: ICategory,
+        empId: EmpId,
+        empName: ICategory,
         IDes: IDes,
         IMake: IMake,
-        IValue: IValue,
+        Ivalue: IValue,
       };
-      const url = "https://localhost:7033/api/LoanLogger";
+      const url = "https://localhost:7033/api/ApplyLoans";
       axios
         .post(url, data)
         .then((result) => {
@@ -46,18 +46,65 @@ const LoanApply = () => {
   const [ICategory, setCategory] = useState(" ");
   const [IDes, setDes] = useState(" ");
   const [IMake, setMake] = useState(" ");
-  const [IValue, setIvalue] = useState(" ");
+  const [IValue, setIvalue] = useState("0");
   const handleIdChange = (value) => {
     setId(value);
   };
   const handleCategoryChange = (value) => {
     setCategory(value);
+    setMake("");
+    setIvalue('0');
   };
   const handleDesChange = (value) => {
     setDes(value);
   };
   const handleItemMakeChange = (value) => {
     setMake(value);
+    if(ICategory === 'furniture'){
+      switch (value){
+        case 'wooden':
+          setIvalue('5000');
+          break;
+        case 'plastic':
+          setIvalue('2000');
+          break;
+        case 'glass':
+          setIvalue('1000');
+          break;
+        default:
+          setIvalue('0');
+      }
+    }else if(ICategory === 'crockery'){
+      switch (value){
+        case 'wooden':
+          setIvalue('5000');
+          break;
+        case 'plastic':
+          setIvalue('2000');
+          break;
+        case 'glass':
+          setIvalue('1000');
+          break;
+        default:
+          setIvalue('0');
+      }
+    }else if(ICategory === 'stationary'){
+      switch (value){
+        case 'wooden':
+          setIvalue('5000');
+          break;
+        case 'plastic':
+          setIvalue('2000');
+          break;
+        case 'glass':
+          setIvalue('1000');
+          break;
+        default:
+          setIvalue('0');
+      }
+    }else{
+      setIvalue('0');
+    }
   };
   const handleValueChange = (value) => {
     setIvalue(value);
@@ -87,9 +134,10 @@ const LoanApply = () => {
               required
               onChange={(e) => handleCategoryChange(e.target.value)}
             >
-              <option value="Furniture">Furniture</option>
-              <option value="Stationary">Stationary</option>
-              <option value="Crockery">Crockery</option>
+              <option value="">choose a category</option>
+              <option value="furniture">Furniture</option>
+              <option value="stationary">Stationary</option>
+              <option value="crockery">Crockery</option>
             </Form.Select>
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
@@ -107,33 +155,41 @@ const LoanApply = () => {
               Please provide a valid Description.
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group as={Col} md="6" controlId="validationCustom04">
-            <Form.Label>Item value</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter Item value"
-              required
-              onChange={(e) => handleValueChange(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid number.
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        <Row className="mb-3">
-          <Form.Group as={Col} md="6" controlId="validationCustom02">
+          {ICategory && ( <Form.Group as={Col} md="6" controlId="validationCustom02">
             <Form.Label>Item Make</Form.Label>
             <Form.Select
               aria-label="Default select example"
               required
+              value={IMake}
               onChange={(e) => handleItemMakeChange(e.target.value)}
             >
-              <option value="Wodden">Wodden</option>
-              <option value="Glass">Glass</option>
-              <option value="Plastic">Plastic</option>
+              <option value="">choose a material</option>
+              <option value="wooden">Wodden</option>
+              <option value="glass">Glass</option>
+              <option value="plastic">Plastic</option>
             </Form.Select>
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
+         )}
+         
+        </Row>
+        <Row className="mb-3">
+        <Form.Group as={Col} md="6" controlId="validationCustom04">
+            <Form.Label>Item value</Form.Label>
+            <Form.Control
+              type="text"
+              value={IValue}
+              required
+              onChange={(e) => handleValueChange(e.target.value)}
+              
+            />
+           
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid number.
+            </Form.Control.Feedback>
+          </Form.Group>
+          {/* <label>Item value</label>
+          {IValue} */}
         </Row>
         <div>
           <CustomButton

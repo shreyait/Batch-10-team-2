@@ -17,7 +17,7 @@ const LoanTable = ({ loans, editLoan, deleteLoan }) => {
       <tbody>
         {loans.map((loan) => (
           <TableRow
-            key={loan.id}
+            key={loan.loanid}
             loan={loan}
             editLoan={editLoan}
             deleteLoan={deleteLoan}
