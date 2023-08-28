@@ -11,7 +11,7 @@ const ItemPurchased = () => {
     data2=JSON.parse(data2);
     console.log(data2);
     console.log(data2.employeeId)
-    let EmpID = data2.employeeId;
+    let EmpID = data1?data1.employeeId:data2.employeeId;
 
     const [data, setData] = useState([]);
     useEffect(()=> {
