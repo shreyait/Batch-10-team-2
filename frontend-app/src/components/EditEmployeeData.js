@@ -45,9 +45,9 @@ const handleDesignationChange = (value) => {
         console.log(response.data);
         setID(response.data.empId);
         setname(response.data.employeeName);
-        setgender(response.data.designation);
+        setgender(response.data.gender);
         setdep(response.data.department);
-        setdesignation(response.data.gender);
+        setdesignation(response.data.designation);
         setDOB(response.data.dateofBirth);
         setDOJ(response.data.dateofJoining);
 
@@ -156,7 +156,7 @@ setValidated(true);
               <Form.Label>Date of Birth</Form.Label>
               <Form.Control
                 required
-                type="Date"
+                type="text"
                 placeholder="Enter Date of Birth"
                value={DOB}
                 onChange={(e) => handleDOBChange(e.target.value)}
@@ -168,7 +168,7 @@ setValidated(true);
               <Form.Label>Date of joining</Form.Label>
               <Form.Control
                 required
-                type="Date"
+                type="text"
                 placeholder="Enter Date of joining"
                 value={DOJ}
                 onChange={(e) => handleDOJChange(e.target.value)}
@@ -188,6 +188,7 @@ setValidated(true);
                 required
                 onChange={(e) => handleGenderChange(e.target.value)}
               >
+                <option value="p">Select gender</option>
                 <option value="M">M</option>
                 <option value="F">F</option>
               </Form.Select>
