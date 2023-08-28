@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoanAdminManagement.Migrations
 {
     [DbContext(typeof(DataContextdb))]
-    [Migration("20230823170444_initial")]
+    [Migration("20230824065449_initial")]
     partial class initial
     {
         /// <inheritdoc />

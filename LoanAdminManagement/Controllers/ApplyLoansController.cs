@@ -34,13 +34,13 @@ namespace LoanAdminManagement.Controllers
 
         // GET: api/ApplyLoans/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ApplyLoan>> GetApplyLoan(string id)
+        public async Task<ActionResult<IEnumerable<ApplyLoan>>> GetApplyLoan(string id)
         {
           if (_context.ApplyLoan == null)
           {
               return NotFound();
           }
-            var applyLoan = await _context.ApplyLoan.FindAsync(id);
+            var applyLoan =  _context.ApplyLoan.Where(x=>x.empId==id).ToList();
 
             if (applyLoan == null)
             {

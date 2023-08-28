@@ -117,7 +117,7 @@ namespace LoanAdminManagement.Migrations
                 name: "Registrations",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier ", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     employeeId = table.Column<string>(type: "varchar(20)", nullable: false),
                     Name = table.Column<string>(type: "varchar(20)", nullable: false),
                     username = table.Column<string>(type: "varchar(20)", nullable: false),

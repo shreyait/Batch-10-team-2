@@ -5,6 +5,6 @@
     "\\LoanAdminManagement\\Controllers",
     "\\LoanAdminManagement\\Model"
   ],
-  "SelectedNode": "\\LoanAdminManagement.sln",
+  "SelectedNode": "\\LoanAdminManagement\\Controllers\\RegistrationsController.cs",
   "PreviewInSolutionExplorer": false
 }
